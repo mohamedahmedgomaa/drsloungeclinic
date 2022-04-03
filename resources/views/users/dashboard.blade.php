@@ -48,6 +48,7 @@
             text-align: center;
             font-size: 25px;
         }
+
         .icons i {
             margin: 30px 20px 10px 20px;
         }
@@ -366,7 +367,8 @@
                          class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
                          style="width: 150px">
                     <div class="mt-5">
-                        <h5><span class="fw-bolder">Email :</span> <a href = "mailto:info@drsloungeclinic.com">info@drsloungeclinic.com</a></h5>
+                        <h5><span class="fw-bolder">Email :</span> <a href="mailto:info@drsloungeclinic.com">info@drsloungeclinic.com</a>
+                        </h5>
                         <h5><span class="fw-bolder">Address : </span><a target="_blank"
                                                                         href="https://goo.gl/maps/gTRmT1KBX7a1MyH19"> Al
                                 Yasmin, thumamah road intersection with king abdulaziz, Riyadh 13322. </a></h5>
@@ -375,14 +377,14 @@
                 </div>
 
                 <div class="col-md-5 offset-md-1">
-                    <h2 style="font-size: 24px;font-weight: 300;text-transform: uppercase;letter-spacing: 4px;">NEWSLETTER</h2>
+                    <h2 style="font-size: 24px;font-weight: 300;text-transform: uppercase;letter-spacing: 4px;">
+                        NEWSLETTER</h2>
                     <p>Sign up for subscribe out newsletter!</p>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Enter Your Email" aria-label="Enter Your Email">
-                        <button class="btn btn-outline-danger" type="button" id="button-addon2">Subscribe</button>
-                    </div>
 
-                    <h2 style="font-size: 24px;font-weight: 300;text-transform: uppercase;letter-spacing: 4px;margin-top: 100px">FOLLOW US</h2>
+                    <livewire:user.subscribe/>
+
+                    <h2 style="font-size: 24px;font-weight: 300;text-transform: uppercase;letter-spacing: 4px;margin-top: 100px">
+                        FOLLOW US</h2>
                     <div class="icons mb-3">
                         <i class="fab fa-facebook"></i>
                         <i class="fab fa-twitter"></i>
@@ -403,8 +405,17 @@
 </main>
 
 
+
+
 <script src="{{asset('user')}}/assets/dist/js/bootstrap.bundle.min.js"></script>
 
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+@include('users.includes.layout.models')
+
 @livewireScripts
+
 </body>
 </html>

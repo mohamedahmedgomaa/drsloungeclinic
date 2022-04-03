@@ -9,6 +9,8 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
+//        $data = request()->session()->all();
+//        request()->session()->forget('subscribe_not_show');
         return view('users.dashboard');
     }
 }
