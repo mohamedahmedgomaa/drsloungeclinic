@@ -1,13 +1,5 @@
 @section('title', trans('admins.user-book'))
 
-{{--@section('bc')--}}
-{{--    <li class="breadcrumb-item">--}}
-{{--        <a href="{{ route('administration.dashboard.index') }}">--}}
-{{--            {{ trans('administration.dashboard') }}--}}
-{{--        </a>--}}
-{{--    </li>--}}
-{{--    <li class="breadcrumb-item">{{ trans('admins.user-book') }}</li>--}}
-{{--@endsection--}}
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -93,11 +85,11 @@
                                                 <button wire:click="edit({{ $item->id }})"
                                                         class="edit-modal btn btn-info">
                                                     <span
-                                                        class="fa fa-pencil-square-o"></span> {{ trans('admins.edit') }}
+                                                        class="fa fa-edit"></span>
                                                 </button>
                                                 <button wire:click="delete({{ $item->id }})"
                                                         class="delete-modal btn btn-danger">
-                                                    <span class="fa fa-trash"></span> {{trans('admins.delete')}}
+                                                    <span class="fa fa-trash"></span>
                                                 </button>
                                             </td>
                                         </tr>

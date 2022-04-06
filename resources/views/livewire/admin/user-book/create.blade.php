@@ -44,7 +44,7 @@
                     <div class="col-md-6">
                         <div class="form-group row mx-1">
                             <label for="service" class="label-control">{{ trans('admins.service') }}</label>
-                            {!! Form::select('service', ['1' => 'service', '2' => 'service2'], null, ["wire:model.lazy"=>"service",'class'=>'form-control', 'placeholder'=>trans('administrator.service'), 'id'=>'service']) !!}
+                            {!! Form::select('service', ['1' => 'service', '2' => 'service2'], null, ["wire:model.lazy"=>"service",'class'=>'form-control', 'placeholder'=>trans('admins.service'), 'id'=>'service']) !!}
                             <p class="errorCity text-center text-danger hidden"></p>
                             @error('service')
                             <p class="errorCountry text-center text-danger ">{{ $message }}</p>

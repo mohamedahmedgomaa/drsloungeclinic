@@ -15,3 +15,18 @@
 <link rel="stylesheet" href="{{ asset('admin') }}/plugins/daterangepicker/daterangepicker.css">
 <!-- summernote -->
 <link rel="stylesheet" href="{{ asset('admin') }}/plugins/summernote/summernote-bs4.min.css">
+
+{{--Dropzone--}}
+{!! Html::style('https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.0/min/dropzone.min.css') !!}
+
+{{-- select2 --}}
+{!! Html::style('admin/plugins/select2/css/select2.min.css') !!}
+
+<style>
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+        background-color: #000;
+    }
+    .select2-container {
+        width: 100% !important;
+    }
+</style>

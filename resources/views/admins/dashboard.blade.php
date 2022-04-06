@@ -1,8 +1,14 @@
 @extends('admins.layout.index')
 
-@section('title', trans('administrator.dashboard') )
+@section('title', trans('admins.dashboard') )
 
 @section('content')
+
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+        <img class="animation__shake" src="{{ asset('admin') }}/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    </div>
+
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">

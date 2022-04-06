@@ -52,15 +52,11 @@ class ModelSubscribe extends Component
             'user_subscribe' => 'guest',
         ]);
 
+        request()->session()->put('subscribe_not_show', 'not_show');
+
         $this->resetForm();
         $this->render();
 
-        session()->flash('message', 'Subscribe successfully added.');
-    }
-
-    public function subscribe_not_show(Request $request)
-    {
-        $request->session()->put('subscribe_not_show', 'not_show');
         session()->flash('message', 'Subscribe successfully added.');
     }
 
@@ -68,7 +64,7 @@ class ModelSubscribe extends Component
     {
         if ($this->subscribe_not_show == 'not_show') {
             request()->session()->put('subscribe_not_show', 'not_show');
-            session()->flash('message', 'Subscribe successfully added.');
+            session()->flash('message', 'Subscribe not show again.');
         }
 
         return view('livewire.user.model-subscribe');

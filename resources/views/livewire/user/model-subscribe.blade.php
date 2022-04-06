@@ -10,7 +10,7 @@
     </div>
     {!! Form::open(['url' => '#', 'wire:submit.prevent' => "subscribe",'method' => 'post']) !!}
     <div class="input-group mb-3">
-        {!! Form::email('email', null, ['class' => 'form-control w-100', 'placeholder' => 'Enter Your Email', 'wire:model' => 'email']) !!}
+        {!! Form::email('email', null, ['class' => 'form-control w-100', 'placeholder' => trans('users.email'), 'wire:model' => 'email']) !!}
         {!! Form::submit('Subscribe', ['class' => 'btn btn-outline-danger w-100 mt-4']) !!}
     </div>
     @error('email')

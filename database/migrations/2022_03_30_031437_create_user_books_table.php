@@ -19,6 +19,7 @@ class CreateUserBooksTable extends Migration
             $table->string('phone');
             $table->string('email');
             $table->string('service');
+            $table->string('status');
             $table->timestamps();
         });
     }

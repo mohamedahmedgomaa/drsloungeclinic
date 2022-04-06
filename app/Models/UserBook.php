@@ -14,5 +14,6 @@ class UserBook extends Model
         'email',
         'phone',
         'service',
+        'status',
     ];
 }

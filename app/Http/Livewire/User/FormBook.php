@@ -51,7 +51,7 @@ class FormBook extends Component
         return [
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'required',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'service' => 'required',
         ];
     }
@@ -65,12 +65,13 @@ class FormBook extends Component
             'email' => $data['email'],
             'phone' => $data['phone'],
             'service' => $data['service'],
+            'status' => 'wanting',
         ]);
 
         $this->resetForm();
         $this->render();
 
-        session()->flash('message', 'Post successfully updated.');
+        session()->flash('message', trans('users.bookingSuccessfullyAdded'));
     }
 
 

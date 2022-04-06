@@ -34,3 +34,15 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('admin') }}/dist/js/pages/dashboard.js"></script>
 
+{{--Dropzone--}}
+{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.0/min/dropzone.min.js') !!}
+
+{!! Html::script('admin/plugins/select2/js/select2.full.min.js') !!}
+{!! Html::script('admin/plugins/select2/js/form-select2.js') !!}
+
+
+<script>
+    $(document).ready(function () {
+        $('.select2').select2();
+    });
+</script>

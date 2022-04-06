@@ -53,6 +53,7 @@ class UserBook extends Component
             'email' => $data['email'],
             'phone' => $data['phone'],
             'service' => $data['service'],
+            'status' => 'wanting',
         ]);
 
         $this->resetForm();

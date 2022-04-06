@@ -1,108 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.84.0">
-    <title>Carousel Template · Bootstrap v5.0</title>
+@extends('users.layout.index')
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+@section('title', trans('users.drslounge') )
 
-
-    <!-- Bootstrap core CSS -->
-    <link href="{{asset('user')}}/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="{{ asset('admin') }}/plugins/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-
-        .services {
-            font-size: 80px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 30px;
-        }
-
-        .our_services {
-            font-weight: 300;
-            font-size: 17px;
-            text-transform: uppercase;
-            letter-spacing: 14px;
-            margin-bottom: 5px;
-            color: #F65F7F;
-        }
-
-        .icons {
-            text-align: center;
-            font-size: 25px;
-        }
-
-        .icons i {
-            margin: 30px 20px 10px 20px;
-        }
-
-        @media (max-width: 768px) {
-            .services {
-                font-size: 30px;
-            }
-
-            .our_services {
-                font-size: 10px;
-                letter-spacing: 4px;
-            }
-
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="{{asset('user')}}/assets/dist/css/carousel.css" rel="stylesheet">
-
-    @livewireStyles
-</head>
-<body style="color: #000">
-
-<header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">DrsLounge Clinic</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#book-now">Book Now</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
-
-<main>
+@section('content')
 
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -129,37 +29,121 @@
 
     <div class="container marketing">
 
-        <hr class="featurette-divider">
+        <hr class="featurette-divider" id="book-now">
 
-        <div class="row featurette" id="book-now">
+        <div class="row featurette">
             <div class="col-md-6">
 
                 <livewire:user.form-book/>
 
                 <div class="mt-5 mb-5 text-center">
-                    <h5>Book your appointment by submitting the form, for more information contact our customer service
-                        <a href="tel:0114097260">011 409 7260</a> .</h5>
+                    <h5>{{ trans('users.Book your appointment by submitting the form, for more information contact our customer service.') }}
+                        <a href="tel:0114097260">011 409 7260</a></h5>
                 </div>
                 <div class="mt-5 mb-5 text-center ">
-                    <h5>visit us : <a class="text-decoration-underline" target="_blank"
-                                      href="https://goo.gl/maps/gTRmT1KBX7a1MyH19">Al Yasmin, thumamah road intersection
-                            with king abdulaziz, Riyadh 13322.</a></h5>
+                    <h5>{{ trans('users.visit us') }} : <a class="text-decoration-underline" target="_blank"
+                                                           href="https://goo.gl/maps/gTRmT1KBX7a1MyH19">{{trans('users.Al Yasmin, thumamah road intersection with king abdulaziz, Riyadh 13322.')}}</a>
+                    </h5>
                 </div>
             </div>
             <div class="col-md-6" style="text-align: center">
-                <h2 style="font-size: 90px;font-weight: 900;margin: 132px 0;">BOOK NOW</h2>
+                <h2 style="font-size: 90px;font-weight: 900;margin: 132px 0;">{{ trans('users.bookNow') }}</h2>
             </div>
         </div>
 
-        <hr class="featurette-divider">
+
+        <hr class="featurette-divider" id="products">
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+            </div>
+            <div class="carousel-inner text-center">
+                <div class="carousel-item active mb-5">
+                    <div class="row">
+
+                        @foreach($products as $product)
+                            <div class="card col-md-4 col-sm-12" style="border: none;padding: 0 50px">
+                                {{ Html::image('images/products/' . $product->image, 'img', ['class' => 'card-img-top']) }}
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $product->name }}</h5>
+                                    <h6 class="card-text">{{ $product->price }} SAR</h6>
+                                    <p class="card-text">{{ $product->description }}</p>
+                                </div>
+                                <div class="card-body">
+                                    <a href="{{ route('user.product',$product->id) }}" class="card-link btn btn-outline-dark">view</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="carousel-item mb-5">
+                    <div class="row">
+                        @foreach($productsLast as $product)
+                            <div class="card col-md-4 col-sm-12" style="border: none;padding: 0 50px">
+                                {{ Html::image('images/products/' . $product->image, 'img', ['class' => 'card-img-top']) }}
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $product->name }}</h5>
+                                    <h6 class="card-title">{{ $product->price }} SAR</h6>
+                                    <p class="card-text">{{ $product->description }}</p>
+                                </div>
+                                <div class="card-body">
+                                    <a href="{{ route('user.product',$product->id) }}" class="card-link btn btn-outline-dark">view</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                {{--                <div class="carousel-item mb-5">--}}
+                {{--                    <div class="row">--}}
+
+                {{--                        <div class="card text-center col-md-3 col-sm-12">--}}
+                {{--                            <img src="..." class="card-img-top" alt="...">--}}
+                {{--                            <div class="card-body">--}}
+                {{--                                <h5 class="card-title">Card title</h5>--}}
+                {{--                                <p class="card-text">Some quick example text to build on the card title and make up the--}}
+                {{--                                    bulk of the card's content.</p>--}}
+                {{--                            </div>--}}
+                {{--                            <ul class="list-group list-group-flush">--}}
+                {{--                                <li class="list-group-item">An item</li>--}}
+                {{--                                <li class="list-group-item">A second item</li>--}}
+                {{--                                <li class="list-group-item">A third item</li>--}}
+                {{--                            </ul>--}}
+                {{--                            <div class="card-body">--}}
+                {{--                                <a href="#" class="card-link">Card link</a>--}}
+                {{--                                <a href="#" class="card-link">Another link</a>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+
+                {{--                    </div>--}}
+                {{--                </div>--}}
+            </div>
+            <button class="carousel-control-prev mt-5" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next mt-5" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+        <hr class="featurette-divider" id="about-us">
 
         <div class="row">
             <div class="col-md-7 offset-md-1 order-md-2">
-                <p style="margin-top: 50px">ABOUT US</p>
-                <h2 style="font-size: 50px">Not just a unique experience it is a lifestyle.</h2>
-                <p class="lead">We are Drslounge Clinic. The idea was not to establish a beauty center only, but rather
-                    to become a prestigious center that gives its customers a sense of
-                    privilege which provides high end services.</p>
+                <p style="margin-top: 50px">{{ trans('users.aboutUs') }}</p>
+                <h2 style="font-size: 50px">{{ trans('users.Not just a unique experience it is a lifestyle.') }}</h2>
+                <p class="lead">{{ trans('users.We are Drslounge Clinic. The idea was not to establish a beauty center only, but rather to become a prestigious center that gives its customers a sense of privilege which provides high end services.') }}</p>
 
             </div>
             <div class="col-md-4 order-md-1">
@@ -175,13 +159,13 @@
             </div>
         </div>
 
-        <hr class="featurette-divider">
+        <hr class="featurette-divider" id="services">
 
         <div id="accordion" class="row featurette">
             <div class="col-md-8 offset-md-2 col-sm-12" style="border: 5px outset #F65F7F;padding: 30px;">
                 <h6 class="our_services" style="">
-                    OUR SERVICES </h6>
-                <h2 class="services">SERVICES</h2>
+                    {{ trans('users.ourServices') }}</h6>
+                <h2 class="services">{{ trans('users.services') }}</h2>
 
                 <div class="card mb-3">
                     <div class="card-header">
@@ -337,85 +321,23 @@
 
     </div><!-- /.container -->
 
+    <div id="our-staff"></div>
 
     <div class="row featurette" id="book-now"
-         style="background-image: url('{{asset('user')}}/assets/images/websiteClinic22.jpg');padding: 100px 0;margin: 80px 0;background-position: -800px -25px;">
+         style="background-image: url('{{asset('user')}}/assets/images/websiteClinic22.jpg');padding: 100px 0;margin: 80px 0 10px;background-position: -800px -25px;">
         <div class="col-md-6" style="text-align: center">
-            <h2 style="font-size: 90px;font-weight: 900">Our Staff</h2>
+            <h2 style="font-size: 90px;font-weight: 900">{{ trans('users.ourStaff') }}</h2>
         </div>
 
         <div class="col-md-6">
-            <p class="lead">We have provided specialized medical personnel in the field of health and cosmetic care with
-                knowledgeable skills to provide high quality cosmetic medical services and help to raise the level
-                of cosmetic health awareness among clients.</p>
+            <p class="lead">{{ trans('users.We have provided specialized medical personnel in the field of health and cosmetic care with knowledgeable skills to provide high quality cosmetic medical services and help to raise the level of cosmetic health awareness among clients.') }}</p>
         </div>
     </div>
 
-    <div style="width: 100%;margin-bottom: 100px">
+    <div style="width: 100%;margin-bottom: 10px">
         <iframe
             src="https://maps.google.com/maps?q=Al%20Yasmin%2C%20thumamah%20road%20intersection%20with%20king%20abdulaziz%2C%20Riyadh%2013322&t=m&z=17&output=embed&iwloc=near"
             width="100%" height="400" frameborder="0" style="border:0"></iframe>
     </div>
 
-    <!-- FOOTER -->
-    <div style="background: #000000;color:#ffffff;padding: 100px 0 30px 0">
-        <footer class="container">
-            <div class="row featurette" id="book-now"
-            >
-                <div class="col-md-6">
-                    <img src="{{asset('user')}}/assets/images/ClinicLogoAsset.png" alt=""
-                         class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-                         style="width: 150px">
-                    <div class="mt-5">
-                        <h5><span class="fw-bolder">Email :</span> <a href="mailto:info@drsloungeclinic.com">info@drsloungeclinic.com</a>
-                        </h5>
-                        <h5><span class="fw-bolder">Address : </span><a target="_blank"
-                                                                        href="https://goo.gl/maps/gTRmT1KBX7a1MyH19"> Al
-                                Yasmin, thumamah road intersection with king abdulaziz, Riyadh 13322. </a></h5>
-                        <h5><span class="fw-bolder">Phone :</span> <a href="tel:0114097260">011 409 7260</a></h5>
-                    </div>
-                </div>
-
-                <div class="col-md-5 offset-md-1">
-                    <h2 style="font-size: 24px;font-weight: 300;text-transform: uppercase;letter-spacing: 4px;">
-                        NEWSLETTER</h2>
-                    <p>Sign up for subscribe out newsletter!</p>
-
-                    <livewire:user.subscribe/>
-
-                    <h2 style="font-size: 24px;font-weight: 300;text-transform: uppercase;letter-spacing: 4px;margin-top: 100px">
-                        FOLLOW US</h2>
-                    <div class="icons mb-3">
-                        <i class="fab fa-facebook"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-snapchat"></i>
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                </div>
-
-
-            </div>
-
-            {{--        <p class="float-end"><a href="#">Back to top</a></p>--}}
-            <div class="row text-center mt-5">
-                <p>&copy; 2022. Made with love by Drslounge IT</p>
-            </div>
-        </footer>
-    </div>
-</main>
-
-
-
-
-<script src="{{asset('user')}}/assets/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-@include('users.includes.layout.models')
-
-@livewireScripts
-
-</body>
-</html>
+@endsection

@@ -4,7 +4,7 @@
     <a href="{{ route('admin.dashboard') }}" class="brand-link">
         <img src="{{ asset('admin') }}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">Drslounge Clinic</span>
     </a>
 
     <!-- Sidebar -->
@@ -45,8 +45,50 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.booking') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="fas fa-book nav-icon"></i>
                         <p>User Booking</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.subscribe') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Subscribe</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.product') }}" class="nav-link">
+                        <i class="nav-icon fas fa-project-diagram"></i>
+                        <p>Product</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.productCategory') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tree"></i>
+                        <p>Product Category</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.productSubCategory') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tree"></i>
+                        <p>Product Sub Category</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.productSubSubCategory') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tree"></i>
+                        <p>Sub Sub Category</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.tag') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tags"></i>
+                        <p>Tag</p>
                     </a>
                 </li>
 
