@@ -4,7 +4,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">{{ trans('interface.edit') }}</h4>
+                <h4 class="modal-title">{{ trans('admins.edit') }}</h4>
                 <button wire:click="closemodal" type="button" class="close">&times;</button>
             </div>
             <div class="modal-body">
@@ -50,23 +50,32 @@
                             <div class="form-group row mx-1">
                                 <label for="service" class="label-control">{{ trans('admins.service') }}</label>
                                 {!! Form::select('service', ['1' => 'service', '2' => 'service2'], null, ["wire:model.lazy"=>"service",'class'=>'form-control', 'placeholder'=>trans('admins.service'), 'id'=>'service']) !!}
-                                <p class="errorCity text-center text-danger hidden"></p>
                                 @error('service')
                                 <p class="errorCountry text-center text-danger ">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group row mx-1">
+                                <label for="order_status_id"
+                                       class="label-control">{{ trans('admins.orderStatuses') }}</label>
+                                {!! Form::select('order_status_id', $orderStatuses, null, ["wire:model.lazy"=>"order_status_id",'class'=>'form-control', 'placeholder'=>trans('admins.orderStatus'), 'id'=>'order_status_id']) !!}
+                                @error('service')
+                                <p class="errorCountry text-center text-danger ">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
 
                         <div class="modal-footer">
                             <button wire:loading.attr="disabled" wire:target="update" type="submit"
                                     class="btn btn-primary edit">
-                                <span class='fa fa-check'>{{ trans('interface.edit') }}</span>
+                                <span class='fa fa-check'>{{ trans('admins.edit') }}</span>
                             </button>
                             <button wire:click="closemodal" type="button" class="btn btn-warning">
-                                <span class='fa fa-remove'></span> {{ trans('interface.close') }}
+                                <span class='fa fa-remove'></span> {{ trans('admins.close') }}
                             </button>
                         </div>
-                    </div>
                 </form>
             </div>
         </div>

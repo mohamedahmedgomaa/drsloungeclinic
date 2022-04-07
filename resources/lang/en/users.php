@@ -42,5 +42,6 @@ return [
     'ar' => 'عربى',
     'subscribe' => 'Subscribe',
     'bookingSuccessfullyAdded' => 'Booking Successfully Added.',
+    'addToCart' => 'Add To Cart',
 
 ];

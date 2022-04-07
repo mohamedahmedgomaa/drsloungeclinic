@@ -116,7 +116,7 @@ class Product extends Component
                 'description' => $data['description_en'],
             ],
             'admin_id' => auth('admin')->id(),
-            'price' => '1111',
+            'price' => $data['price'],
             'image' => isset($imagename) ? $imagename : NULL,
             'product_category_id' => $data['product_category_id'],
             'product_sub_category_id' => $data['product_sub_category_id'],

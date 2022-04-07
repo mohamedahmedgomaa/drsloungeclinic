@@ -4,28 +4,28 @@
     </style>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-white" style="color: #000">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url('/') }}">{{ trans('users.drsLoungeClinic') }}</a>
+{{--            <a class="btn btn-block" href="{{ url('/') }}"><h3></h3></a>--}}
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0" style="margin-left: 400px;margin-right: 400px">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
+                        <a class="nav-link active" aria-current="page" style="text-decoration: underline;color: #f65f7f;font-weight: bold"
                            href="{{ url('/') }}">{{ trans('users.home') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#book-now">{{ trans('users.bookNow') }}</a>
+                        <a class="btn btn-block" style="text-decoration: underline;color: #f65f7f;font-weight: bold" href="#about-us">{{ trans('users.aboutUs') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about-us">{{ trans('users.aboutUs') }}</a>
+                        <a class="btn btn-block" style="text-decoration: underline;color: #f65f7f;font-weight: bold" href="#book-now">{{ trans('users.bookNow') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">{{ trans('users.services') }}</a>
+                        <a class="btn btn-block" style="text-decoration: underline;color: #f65f7f;font-weight: bold" href="#services">{{ trans('users.services') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#our-staff">{{ trans('users.ourStaff') }}</a>
+                        <a class="btn btn-block" style="text-decoration: underline;color: #f65f7f;font-weight: bold" href="#our-staff">{{ trans('users.ourStaff') }}</a>
                     </li>
 
                 </ul>

@@ -4,6 +4,16 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController as DashboardControllerAdmin;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\ProductController;
+use App\Http\Livewire\Admin\Order\Order;
+use App\Http\Livewire\Admin\OurService\OurService;
+use App\Http\Livewire\Admin\Product\Product;
+use App\Http\Livewire\Admin\ProductCategory\ProductCategory;
+use App\Http\Livewire\Admin\ProductSubCategory\ProductSubCategory;
+use App\Http\Livewire\Admin\ProductSubSubCategory\ProductSubSubCategory;
+use App\Http\Livewire\Admin\Subscribe\Subscribe;
+use App\Http\Livewire\Admin\Tag\Tag;
+use App\Http\Livewire\Admin\UserBook\UserBook;
+use App\Http\Livewire\User\Product\Cart;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +38,7 @@ Route::group(
         Route::prefix('user')->name('user.')->group(function () {
 
             Route::get('product/{id}', [ProductController::class, 'show'])->name('product');
-            Route::get('cart', [ProductController::class, 'cart'])->name('cart');
+            Route::get('cart', Cart::class)->name('cart');
 
             // Auth User
             Route::group(['middleware' => ['auth:web']], function () {
@@ -45,13 +55,15 @@ Route::group(
                 Route::get('/', [DashboardControllerAdmin::class, 'dashboard'])->name('dashboard');
                 Route::get('/dashboard', [DashboardControllerAdmin::class, 'dashboard'])->name('dashboard');
 
-                Route::get('booking', \App\Http\Livewire\Admin\UserBook\UserBook::class)->name('booking');
-                Route::get('subscribe', \App\Http\Livewire\Admin\Subscribe\Subscribe::class)->name('subscribe');
-                Route::get('product', \App\Http\Livewire\Admin\Product\Product::class)->name('product');
-                Route::get('product-category', \App\Http\Livewire\Admin\ProductCategory\ProductCategory::class)->name('productCategory');
-                Route::get('product-sub-category', \App\Http\Livewire\Admin\ProductSubCategory\ProductSubCategory::class)->name('productSubCategory');
-                Route::get('product-sub-sub-category', \App\Http\Livewire\Admin\ProductSubSubCategory\ProductSubSubCategory::class)->name('productSubSubCategory');
-                Route::get('tag', \App\Http\Livewire\Admin\Tag\Tag::class)->name('tag');
+                Route::get('booking', UserBook::class)->name('booking');
+                Route::get('subscribe', Subscribe::class)->name('subscribe');
+                Route::get('product', Product::class)->name('product');
+                Route::get('product-category', ProductCategory::class)->name('productCategory');
+                Route::get('product-sub-category', ProductSubCategory::class)->name('productSubCategory');
+                Route::get('product-sub-sub-category', ProductSubSubCategory::class)->name('productSubSubCategory');
+                Route::get('tag', Tag::class)->name('tag');
+                Route::get('order', Order::class)->name('order');
+                Route::get('our-service', OurService::class)->name('ourService');
 
             });
         });

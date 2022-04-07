@@ -63,4 +63,15 @@ return [
     'productSubSubCategories' => 'Sub Sub Categories',
     'addProductSubSubCategories' => 'Add Sub Sub Category',
 
+    // Order
+    'orders' => 'Orders',
+    'orderStatus' => 'Order Status',
+    'orderDetails' => 'Order Details',
+    'orderStatuses' => 'Order Statuses',
+    'currentOrders' => 'Current Orders',
+    'showDetails' => 'Show Details Order',
+    'platform' => 'PlatForm',
+    'total' => 'Total',
+    'price' => 'Price',
+    'qty' => 'Qty',
 ];

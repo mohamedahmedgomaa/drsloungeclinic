@@ -25,10 +25,6 @@ class BasketButton extends Component
         $this->qty = Cart::count();
     }
 
-    public function toggle(): void {
-        $this->emit( 'toggleBasket' );
-    }
-
     public function render()
     {
         return view('livewire.user.product.basket-button');

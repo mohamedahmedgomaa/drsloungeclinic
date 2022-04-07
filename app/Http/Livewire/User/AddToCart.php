@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\User\Product;
+namespace App\Http\Livewire\User;
 
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -42,6 +42,6 @@ class AddToCart extends Component
 
     public function render()
     {
-        return view('livewire.user.product.add-to-cart');
+        return view('livewire.user.add-to-cart');
     }
 }

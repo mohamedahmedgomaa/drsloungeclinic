@@ -34,6 +34,10 @@
                 text-align: right;
                 direction: rtl;
             }
+            .select2-container--default .select2-selection--single .select2-selection__rendered,
+            .select2-container--default .select2-results>.select2-results__options {
+                direction: rtl;
+            }
         </style>
     @endif
 
@@ -41,7 +45,19 @@
     <link rel="stylesheet" href="{{ asset('admin') }}/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+
+    {{-- select2 --}}
+    {!! Html::style('admin/plugins/select2/css/select2.min.css') !!}
+
     <style>
+        .select2-container--default .select2-selection--multiple .select2-selection__choice {
+            background-color: #000;
+        }
+        .select2-container {
+            width: 100% !important;
+        }
+
         body {
             padding-bottom: 0;
         }
@@ -181,6 +197,17 @@
 {{-- Subscribe Model in First Page --}}
 {{--@include('users.includes.layout.models')--}}
 {{-- Subscribe Model in First Page --}}
+
+
+{!! Html::script('admin/plugins/select2/js/select2.full.min.js') !!}
+{!! Html::script('admin/plugins/select2/js/form-select2.js') !!}
+
+
+<script>
+    $(document).ready(function () {
+        $('.select2').select2();
+    });
+</script>
 
 
 @livewireScripts

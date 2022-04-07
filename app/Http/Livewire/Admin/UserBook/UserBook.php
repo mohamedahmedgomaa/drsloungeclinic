@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\UserBook;
 
+use App\Models\OrderStatus;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\UserBook as ModelUserBook;
@@ -12,6 +13,7 @@ class UserBook extends Component
     public $phone = '';
     public $email = '';
     public $service = '';
+    public $order_status_id = '';
     public $Id;
     public $showEditModal = false;
     public $showDeleteModal = false;
@@ -29,6 +31,7 @@ class UserBook extends Component
         'email' => 'required|email',
         'phone' => 'required',
         'service' => 'required',
+        'order_status_id' => 'nullable',
     ];
 
     public function updated($propertyName)
@@ -53,7 +56,7 @@ class UserBook extends Component
             'email' => $data['email'],
             'phone' => $data['phone'],
             'service' => $data['service'],
-            'status' => 'wanting',
+            'order_status_id' => 1,
         ]);
 
         $this->resetForm();
@@ -70,6 +73,7 @@ class UserBook extends Component
         $this->email = $item->{'email'};
         $this->phone = $item->phone;
         $this->service = $item->service;
+        $this->order_status_id = $item->order_status_id;
     }
 
     public function update()
@@ -81,6 +85,7 @@ class UserBook extends Component
             'email' => $data['email'],
             'phone' => $data['phone'],
             'service' => $data['service'],
+            'order_status_id' => $data['order_status_id'],
         ]);
         $this->resetForm();
         $this->emit('updatesurvise');
@@ -126,6 +131,8 @@ class UserBook extends Component
 
     public function render()
     {
+        $orderStatuses = OrderStatus::where('active', 1)->listsTranslations('name')->pluck('name', 'id')->toArray();;
+
         $items = ModelUserBook::where('name', 'LIKE', '%' . $this->search . '%')
             ->orWhere('email', 'LIKE', '%' . $this->search . '%')
             ->orWhere('phone', 'LIKE', '%' . $this->search . '%')
@@ -137,6 +144,7 @@ class UserBook extends Component
 
         return view('livewire.admin.user-book.user-book', [
             'items' => $items,
+            'orderStatuses' => $orderStatuses,
         ])
             ->extends('admins.layout.index')
             ->section('content');

@@ -1,14 +1,13 @@
-@section('title', trans('admins.user-book'))
+@section('title', trans('admins.productCategories'))
 
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title"
-                            id="row-separator-colored-controls">{{ trans('admins.user-book') }}</h4>
+                            id="row-separator-colored-controls">{{ trans('admins.productCategories') }}</h4>
                         <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
                         <div class="heading-elements">
                             <ul class="list-inline mb-0">
@@ -16,18 +15,28 @@
                             </ul>
                         </div>
                     </div>
-                    @include('livewire.admin.user-book.create')
+
+                    @include('livewire.admin.our-service.create')
+
 
                     <div class="card-content collapse show">
                         <div class="card-body">
-                            <h4 class="form-section">
+                            @if (Session::has('success'))
+                                <div class="alert alert-success alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <strong>{{ Session::get('success')}}</strong>
+                                </div>
+                            @endif
+                            <h4 class="card-section">
                                 <i class="fas fa-info-circle text-primary"></i>
-                                {{ trans('admins.service') }}
+                                {{ trans('admins.currentProductCategories') }}
                             </h4>
-                            <div class="mb-3 row ">
-                                <label for="Search" class="form-label col-md-1">Search</label>
-                                <input wire:model="search"
-                                       name="search" type="search" class="form-control col-md-11" id="Search">
+                            <div class="mb-2 row">
+                                <div class="col-12">
+                                    <label for="Search" class="form-label">{{ __('admins.search') }}</label>
+                                    <input wire:model="search" name="search" type="search" class="form-control"
+                                           id="Search">
+                                </div>
                             </div>
                             <div class="table-responsive">
                                 <table class="table text-center" id="countryTable">
@@ -35,41 +44,28 @@
                                     <tr>
                                         <th>#</th>
                                         <th>
-                                            <div wire:click="sortBy('name')">{{ trans('admins.name') }}
+                                            <div wire:click="sortBy('name','ar')">{{ trans('admins.nameArabic') }}
                                                 @if ($sortField !== 'name')
 
-                                                @elseif($sortAsc)
+                                                @elseif($sortAsc && $lang == 'ar')
                                                     <i class="la la-dot-circle-o success font-medium-1 mr-1"></i>
-                                                @elseif(!$sortAsc)
-                                                    <i class="la la-dot-circle-o danger font-medium-1 mr-1"></i>
-                                                @endif
-
-
-                                            </div>
-                                        </th>
-                                        <th>
-                                            <div wire:click="sortBy('name')">{{ trans('admins.email') }}
-                                                @if ($sortField !== 'name')
-
-                                                @elseif($sortAsc)
-                                                    <i class="la la-dot-circle-o success font-medium-1 mr-1"></i>
-                                                @elseif(!$sortAsc)
+                                                @elseif(!$sortAsc && $lang == 'ar')
                                                     <i class="la la-dot-circle-o danger font-medium-1 mr-1"></i>
                                                 @endif
                                             </div>
                                         </th>
                                         <th>
-                                            <div wire:click="sortBy('phone')">{{ trans('admins.phone') }}
-                                                @if ($sortField !== 'phone')
+                                            <div wire:click="sortBy('name','en')">{{ trans('admins.nameEnglish') }}
+                                                @if ($sortField !== 'name')
 
-                                                @elseif($sortAsc)
+                                                @elseif($sortAsc && $lang == 'en')
                                                     <i class="la la-dot-circle-o success font-medium-1 mr-1"></i>
-                                                @elseif(!$sortAsc)
+                                                @elseif(!$sortAsc && $lang == 'en')
                                                     <i class="la la-dot-circle-o danger font-medium-1 mr-1"></i>
                                                 @endif
                                             </div>
                                         </th>
-                                        <th>{{ trans('admins.service') }}</th>
+                                        <th>{{ trans('admins.image') }} </th>
                                         <th>{{ trans('admins.actions') }}</th>
                                     </tr>
                                     </thead>
@@ -77,26 +73,25 @@
                                     @foreach($items as $item)
                                         <tr class="item{!! $item->id !!}">
                                             <td>{{ $items->firstItem()+$loop->index }}</td>
-                                            <td>{!! $item->name !!}</td>
-                                            <td>{!! $item->email !!}</td>
-                                            <td>{!! $item->phone !!}</td>
-                                            <td>{!! $item->service !!}</td>
+                                            <td>{!! $item->{'name:ar'} !!}</td>
+                                            <td>{!! $item->{'name:en'} !!}</td>
+                                            <td>{{ Html::image('images/productCategories/' . $item->image, 'img', ['class' => 'img-fluid', 'width' => 50, 'id' => 'repImage' . $item->id]) }}</td>
                                             <td>
                                                 <button wire:click="edit({{ $item->id }})"
                                                         class="edit-modal btn btn-info">
-                                                    <span
-                                                        class="fa fa-edit"></span>
+                                                        <span
+                                                            class="fa fa-edit"></span>
                                                 </button>
-{{--                                                <button wire:click="delete({{ $item->id }})"--}}
-{{--                                                        class="delete-modal btn btn-danger">--}}
-{{--                                                    <span class="fa fa-trash"></span>--}}
-{{--                                                </button>--}}
+                                                <button wire:click="delete({{ $item->id }})"
+                                                        class="delete-modal btn btn-danger">
+                                                        <span
+                                                            class="fa fa-trash"></span>
+                                                </button>
                                             </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
-
                             </div>
                             <div class="row">
                                 <div class="col-12 text-center m-2">
@@ -104,21 +99,17 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
 
-            @include('livewire.admin.user-book.edit')
+            @include('livewire.admin.our-service.edit')
 
-            @include('livewire.admin.user-book.delete')
+            @include('livewire.admin.our-service.delete')
             <script>
                 window.addEventListener('click', function (e) {
                     if (document.getElementById('modalbody').contains(e.target)) {
-
                         if (document.getElementById('innerbox').contains(e.target)) {
-
-
                         } else {
                             Livewire.emit('closemodel')
                         }
@@ -128,10 +119,7 @@
             <script>
                 window.addEventListener('click', function (e) {
                     if (document.getElementById('modalbodydel').contains(e.target)) {
-
                         if (document.getElementById('innerboxdel').contains(e.target)) {
-
-
                         } else {
                             Livewire.emit('closemodel')
                         }
@@ -141,3 +129,4 @@
         </div>
     </div>
 </section>
+

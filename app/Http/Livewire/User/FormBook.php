@@ -65,7 +65,7 @@ class FormBook extends Component
             'email' => $data['email'],
             'phone' => $data['phone'],
             'service' => $data['service'],
-            'status' => 'wanting',
+            'order_status_id' => 1,
         ]);
 
         $this->resetForm();

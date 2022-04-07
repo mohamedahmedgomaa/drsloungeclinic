@@ -44,6 +44,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.order') }}" class="nav-link">
+                        <i class="nav-icon fas fa-first-order"></i>
+                        <p>Order</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.booking') }}" class="nav-link">
                         <i class="fas fa-book nav-icon"></i>
                         <p>User Booking</p>
@@ -82,6 +88,13 @@
                     <a href="{{ route('admin.productSubSubCategory') }}" class="nav-link">
                         <i class="nav-icon fas fa-tree"></i>
                         <p>Sub Sub Category</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.ourService') }}" class="nav-link">
+                        <i class="nav-icon fas fa-server"></i>
+                        <p>Our Service</p>
                     </a>
                 </li>
 
