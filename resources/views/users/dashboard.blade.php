@@ -26,7 +26,7 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container marketing">
+    <div class="container marketing" id="about-us">
 
         <div class="row mt-5">
 
@@ -36,10 +36,8 @@
 
             </div>
             <div class="col-md-7 offset-md-1 order-md-2">
-                <p style="margin-top: 50px">{{ trans('users.aboutUs') }}</p>
-                <h2 style="font-size: 50px">{{ trans('users.Not just a unique experience it is a lifestyle.') }}</h2>
-                <p class="lead">{{ trans('users.We are Drslounge Clinic. The idea was not to establish a beauty center only, but rather to become a prestigious center that gives its customers a sense of privilege which provides high end services.') }}</p>
-
+                <h6 style="margin-top: 50px;color:#f65f7f">{{ trans('users.aboutUs') }}</h6>
+                <h4>{{ trans('users.Drslounge clinic specialized in laser, non-surgical body contorting and dermatology, "Feel different” is our slogan at Drslounge clinic , we always strive to provide our customers with the highest standards of quality by providing the latest technology equipment.') }}</h4>
             </div>
         </div>
 
@@ -93,16 +91,13 @@
     <div class="container">
 
         <div class="row text-center">
-            @foreach($products as $product)
-                <div class="card col-lg-3 col-md-4 col-sm-12" style="border: none;padding: 0 5px">
-                    {{ Html::image('images/products/' . $product->image, 'img', ['class' => 'card-img-top']) }}
+            <h1 class="mb-5"><strong>{{ trans('users.ourServices') }}</strong></h1>
+            @foreach($ourServices as $ourService)
+                <div class="card col-md-4 col-sm-12" style="border: none;padding: 0 5px">
+                    {{ Html::image('images/ourServices/' . $ourService->image, 'img', ['class' => 'card-img-top']) }}
                     <div class="card-body">
-                        <h4 class="card-title">{{ $product->name }}</h4>
-                        <h6 class="card-text">{{ $product->price }} SAR</h6>
-                        {{--                        <p class="card-text">{{ $product->description }}</p>--}}
-                    </div>
-                    <div class="card-body">
-                        <livewire:user.add-to-cart :wire:key="$product->id" :productId="$product->id"/>
+                        <h4 class="card-title">{{ $ourService->name }}</h4>
+                        <hp class="card-text">{{ $ourService->description }}</hp>
                     </div>
                 </div>
             @endforeach

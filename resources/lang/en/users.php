@@ -25,9 +25,8 @@ return [
     'visit us' => 'Visit Us',
     'Al Yasmin, thumamah road intersection with king abdulaziz, Riyadh 13322.' => 'Al Yasmin, thumamah road intersection with king abdulaziz, Riyadh 13322.',
     'aboutUs' => 'About us',
-    'Not just a unique experience it is a lifestyle.' => 'Not just a unique experience it is a lifestyle.',
-    'We are Drslounge Clinic. The idea was not to establish a beauty center only, but rather to become a prestigious center that gives its customers a sense of privilege which provides high end services.'
-    => 'We are Drslounge Clinic. The idea was not to establish a beauty center only, but rather to become a prestigious center that gives its customers a sense of privilege which provides high end services.',
+    'Drslounge clinic specialized in laser, non-surgical body contorting and dermatology, "Feel different” is our slogan at Drslounge clinic , we always strive to provide our customers with the highest standards of quality by providing the latest technology equipment.'
+    => 'Drslounge clinic specialized in laser, non-surgical body contorting and dermatology, "Feel different” is our slogan at Drslounge clinic , we always strive to provide our customers with the highest standards of quality by providing the latest technology equipment.',
 
     'ourServices' => 'Our Services',
     'services' => 'Services',

@@ -1,10 +1,11 @@
 <div class="card-content collapse show">
     <div class="card-body">
+
         <form wire:submit.prevent="create">
             <div class="form-body">
                 <h4 class="form-section">
                     <i class="fas fa-info-circle text-primary"></i>
-                    {{ trans('admins.addProductCategories') }}
+                    {{ trans('admins.addOurService') }}
                 </h4>
                 <div id="validation-errors"></div>
                 <div class="row">

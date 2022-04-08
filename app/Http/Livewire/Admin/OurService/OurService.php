@@ -71,7 +71,7 @@ class OurService extends Component
         $data = $this->validate();
         if ($this->image) {
             $imagename = time() . '.' . $this->image->extension();
-            Image::make($this->image)->save('images/productCategories/' . $imagename);
+            Image::make($this->image)->save('images/ourServices/' . $imagename);
         }
         ModelOurService::create([
             'ar' => [
@@ -87,6 +87,8 @@ class OurService extends Component
         ]);
         $this->resetForm();
         $this->render();
+
+        session()->flash('message', trans('admins.addOurServiceSuccess'));
     }
 
     public function edit($id)
@@ -108,7 +110,7 @@ class OurService extends Component
         $oldimage = $item->image;
         if ($this->image) {
             $imagename = time() . '.' . $this->image->extension();
-            Image::make($this->image)->save('images/productCategories/' . $imagename);
+            Image::make($this->image)->save('images/ourServices/' . $imagename);
         }
         $item->update([
             'ar' => [

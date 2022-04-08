@@ -24,9 +24,8 @@ return [
     'visit us' => 'زورنا',
     'Al Yasmin, thumamah road intersection with king abdulaziz, Riyadh 13322.' => 'الياسمين تقاطع طريق الثمامة مع الملك عبدالعزيز الرياض 13322.',
     'aboutUs' => 'معلومات عنا',
-    'Not just a unique experience it is a lifestyle.' => 'ليست مجرد تجربة فريدة بل أسلوب حياة.',
-    'We are Drslounge Clinic. The idea was not to establish a beauty center only, but rather to become a prestigious center that gives its customers a sense of privilege which provides high end services.'
-    => 'نحن عيادة دكتوزلونج. لم تكن الفكرة إنشاء مركز تجميل فقط ، بل أن يصبح مركزًا مرموقًا يمنح عملائه إحساسًا بالامتياز يقدم خدمات راقية.',
+    'Drslounge clinic specialized in laser, non-surgical body contorting and dermatology, "Feel different” is our slogan at Drslounge clinic , we always strive to provide our customers with the highest standards of quality by providing the latest technology equipment.'
+    => 'دكتورز لاونج كلينك متخصصة في الليزر ، النحت الغير جراحي والجلدية، " اشعري بإلاختلاف " هو شعارنا في دكتورز كلينك : لذا نحرص دائماً على تقديم أحدث التقنيات والأجهزة وأكثرها تطوراً وتحت إشراف أمهر خبراء الطب التجميلي.',
 
     'ourServices' => 'خدماتنا',
     'services' => 'الخدمات',

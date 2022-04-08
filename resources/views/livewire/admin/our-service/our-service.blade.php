@@ -1,4 +1,4 @@
-@section('title', trans('admins.productCategories'))
+@section('title', trans('admins.ourServices'))
 
 <section class="content">
     <div class="container-fluid">
@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title"
-                            id="row-separator-colored-controls">{{ trans('admins.productCategories') }}</h4>
+                            id="row-separator-colored-controls">{{ trans('admins.ourServices') }}</h4>
                         <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
                         <div class="heading-elements">
                             <ul class="list-inline mb-0">
@@ -15,7 +15,11 @@
                             </ul>
                         </div>
                     </div>
-
+                    @if (session()->has('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    @endif
                     @include('livewire.admin.our-service.create')
 
 
@@ -29,7 +33,7 @@
                             @endif
                             <h4 class="card-section">
                                 <i class="fas fa-info-circle text-primary"></i>
-                                {{ trans('admins.currentProductCategories') }}
+                                {{ trans('admins.currentOurServices') }}
                             </h4>
                             <div class="mb-2 row">
                                 <div class="col-12">
@@ -75,7 +79,7 @@
                                             <td>{{ $items->firstItem()+$loop->index }}</td>
                                             <td>{!! $item->{'name:ar'} !!}</td>
                                             <td>{!! $item->{'name:en'} !!}</td>
-                                            <td>{{ Html::image('images/productCategories/' . $item->image, 'img', ['class' => 'img-fluid', 'width' => 50, 'id' => 'repImage' . $item->id]) }}</td>
+                                            <td>{{ Html::image('images/ourServices/' . $item->image, 'img', ['class' => 'img-fluid', 'width' => 50, 'id' => 'repImage' . $item->id]) }}</td>
                                             <td>
                                                 <button wire:click="edit({{ $item->id }})"
                                                         class="edit-modal btn btn-info">

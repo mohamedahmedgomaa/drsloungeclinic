@@ -88,16 +88,17 @@
                         </div>
 
                         {!! Form::open(['url' => '#', 'wire:submit.prevent' => "bookCart",'method' => 'post']) !!}
+
                         <div class="mb-3">
-                            {!! Form::label('email', trans('users.email'), ['class' => 'form-label'] ) !!}
-                            {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => trans('users.email'), 'wire:model' => 'email']) !!}
-                            @error('email')
+                            {!! Form::label('name', trans('users.name'), ['class' => 'form-label']) !!}<span style="color: red;font-size: 20px;">*</span>
+                            {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => trans('users.name'),  'wire:model' => 'name']) !!}
+                            @error('name')
                             <p class="text-center text-danger ">{{ $message }}</p>
                             @enderror
 
                         </div>
                         <div class="mb-3">
-                            {!! Form::label('phone', trans('users.phone'), ['class' => 'form-label']) !!}
+                            {!! Form::label('phone', trans('users.phone'), ['class' => 'form-label']) !!}<span style="color: red;font-size: 20px;">*</span>
                             {!! Form::text('phone', null, ['class' => 'form-control', 'placeholder' => trans('users.phone'), 'wire:model' => 'phone']) !!}
                             @error('phone')
                             <p class="text-center text-danger ">{{ $message }}</p>
@@ -105,14 +106,12 @@
 
                         </div>
                         <div class="mb-3">
-                            {!! Form::label('name', trans('users.name'), ['class' => 'form-label']) !!}
-                            {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => trans('users.name'),  'wire:model' => 'name']) !!}
-                            @error('name')
+                            {!! Form::label('email', trans('users.email'), ['class' => 'form-label'] ) !!}
+                            {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => trans('users.email'), 'wire:model' => 'email']) !!}
+                            @error('email')
                             <p class="text-center text-danger ">{{ $message }}</p>
                             @enderror
-
                         </div>
-
                         <ul class="list-group list-group-flush">
                             <li
                                 class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">

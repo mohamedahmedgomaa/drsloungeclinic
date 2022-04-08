@@ -10,7 +10,7 @@
             <form wire:submit.prevent="update" class="form-horizontal">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="NameArabic" class="label-control">{{__('admins.nameEN')}}</label>
+                        <label for="NameArabic" class="label-control">{{__('admins.nameArabic')}}</label>
                         <input wire:model.lazy="name_ar" class="form-control" placeholder="Name Arabic" name="name_ar"
                                type="text" id="NameArabic">
                         @error('name_ar')
@@ -19,13 +19,36 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="NameEnglish" class="label-control">{{__('admins.nameEN')}}</label>
+                        <label for="NameEnglish" class="label-control">{{__('admins.nameArabic')}}</label>
                         <input wire:model.lazy="name_en" class="form-control" placeholder="Name English" name="name_en"
                                type="text" id="NameEnglish">
                         @error('name_en')
                         <p class="errorCountry text-center text-danger ">{{ $message }}</p>
                         @enderror
                     </div>
+
+                    <div class="form-group">
+                        <label for="descriptionArabic"
+                               class="label-control">{{trans('admins.descriptionArabic')}}</label>
+                        <input wire:model.lazy="description_ar" class="form-control"
+                               placeholder="{{trans('admins.descriptionArabic')}}"
+                               name="description_ar" type="text" id="descriptionArabic">
+                        @error('description_ar')
+                        <p class="errorCountry text-center text-danger ">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descriptionEnglish"
+                               class="label-control">{{trans('admins.descriptionEnglish')}}</label>
+                        <input wire:model.lazy="description_en" class="form-control"
+                               placeholder="{{trans('admins.descriptionEnglish')}}"
+                               name="description_en" type="text" id="descriptionEnglish">
+                        @error('description_en')
+                        <p class="errorCountry text-center text-danger ">{{ $message }}</p>
+                        @enderror
+                    </div>
+
                     <div class="form-group">
                         <label for="image" class="label-control">{{__('admins.image')}}</label>
                         <input type="file" wire:model.lazy="image" class="form-control" id="image" name="image"/>
