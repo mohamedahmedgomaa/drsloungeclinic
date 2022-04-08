@@ -201,7 +201,7 @@
 
 
 {!! Html::script('admin/plugins/select2/js/select2.full.min.js') !!}
-{!! Html::script('admin/plugins/select2/js/select2.js') !!}
+{{--{!! Html::script('admin/plugins/select2/js/select2.js') !!}--}}
 
 
 <script>

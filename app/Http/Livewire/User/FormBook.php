@@ -30,6 +30,7 @@ class FormBook extends Component
             return [
                 'name.required' => 'مطلوب حقل الاسم الأول.',
                 'phone.required' => 'مطلوب حقل الاسم الثاني.',
+                'email.required' => 'مطلوب حقل البريد الالكتروني.',
                 'email.email' => 'يجب أن يكون البريد الإلكتروني عنوان بريد إلكتروني صالحًا.',
                 'service.required' => 'مطلوب حقل البريد الالكتروني.',
             ];
@@ -37,6 +38,7 @@ class FormBook extends Component
             return [
                 'name.required' => 'The firstname field is required.',
                 'phone.required' => 'The phone field is required.',
+                'email.required' => 'The email field is required.',
                 'email.email' => 'The email must be a valid email address.',
                 'service.required' => 'The service field is required.',
             ];
@@ -50,11 +52,11 @@ class FormBook extends Component
             'name' => 'required',
             'email' => 'nullable|email',
             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            'service' => 'required',
+            'service' => 'required|in:laser,dermatology,body_contouring',
         ];
     }
 
-    public function registration()
+    public function bookNow()
     {
         $data = $this->validate();
 

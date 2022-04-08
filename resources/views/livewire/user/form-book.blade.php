@@ -7,7 +7,7 @@
         @endif
     </div>
 
-    {!! Form::open(['url' => '#', 'wire:submit.prevent' => "registration",'method' => 'post']) !!}
+    {!! Form::open(['url' => '#', 'wire:submit.prevent' => "bookNow",'method' => 'post']) !!}
 
     <div class="mb-3">
         {!! Form::label('name', trans('users.name'), ['class' => 'form-label']) !!}<span style="color: red;font-size: 20px;">*</span>
@@ -33,9 +33,9 @@
         @enderror
 
     </div>
-    <div class="mb-3" wire:ignore>
+    <div class="mb-3">
         {!! Form::label('service', trans('users.service'), ['class' => 'form-label']) !!}<span style="color: red;font-size: 20px;">*</span>
-        {!! Form::select('service', ['laser' => trans('users.laser'), 'dermatology' => trans('users.dermatology'), 'body_contouring' => trans('users.body_contouring')], null, ["wire:model.lazy"=>"service",'class'=>'form-control select2', 'placeholder'=>trans('users.selectService'), 'id'=>'service']) !!}
+        {!! Form::select('service', ['laser' => trans('users.laser'), 'dermatology' => trans('users.dermatology'), 'body_contouring' => trans('users.body_contouring')], null, ["wire:model.lazy"=>"service",'class'=>'form-control custom-select form-select', 'placeholder'=>trans('users.selectService'), 'id'=>'service']) !!}
         @error('service')
         <p class="errorCountry text-center text-danger ">{{ $message }}</p>
         @enderror
@@ -47,3 +47,23 @@
 
 
 </div>
+
+
+@section('page-script')
+    <script>
+        $(function () {
+            Livewire.on('addSelect2',function () {
+                $('#chosenFilters').select2().on('change',function () {
+                @this.set('chosen_filters', $(this).val());
+                });
+            });
+
+            $('.select2').on('change', function () {
+                if ($(this).attr("name") === 'service') {
+                @this.set('service', $(this).val());
+                }
+            })
+        });
+
+    </script>
+@endsection
