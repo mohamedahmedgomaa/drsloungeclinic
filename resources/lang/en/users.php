@@ -42,5 +42,12 @@ return [
     'subscribe' => 'Subscribe',
     'bookingSuccessfullyAdded' => 'Booking Successfully Added.',
     'addToCart' => 'Add To Cart',
-
+    'bookAppointment' => 'Book Appointment',
+    'Thank you for Trusting. Drs.clinic ,' => 'Thank you for Trusting. Drs.clinic ,',
+    'Our Customer service will content you soon' => 'Our Customer service will content you soon',
+    'selectService' => 'Select Service',
+    'laser' => 'Laser',
+    'dermatology' => 'Dermatology',
+    'body_contouring' => 'Body Contouring',
+    'submit' => 'Submit',
 ];

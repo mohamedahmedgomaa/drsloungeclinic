@@ -35,13 +35,13 @@
     </div>
     <div class="mb-3" wire:ignore>
         {!! Form::label('service', trans('users.service'), ['class' => 'form-label']) !!}<span style="color: red;font-size: 20px;">*</span>
-        {!! Form::select('service', ['1' => 'service', '2' => 'service2'], null, ["wire:model.lazy"=>"service",'class'=>'form-control select2', 'placeholder'=>trans('admins.service'), 'id'=>'service']) !!}
+        {!! Form::select('service', ['laser' => trans('users.laser'), 'dermatology' => trans('users.dermatology'), 'body_contouring' => trans('users.body_contouring')], null, ["wire:model.lazy"=>"service",'class'=>'form-control select2', 'placeholder'=>trans('users.selectService'), 'id'=>'service']) !!}
         @error('service')
         <p class="errorCountry text-center text-danger ">{{ $message }}</p>
         @enderror
     </div>
     <div class="mb-3">
-        {!! Form::submit('submit', ['class' => 'btn btn-primary w-100 mt-3']) !!}
+        {!! Form::submit(trans('users.submit'), ['class' => 'btn btn-primary w-100 mt-3' , 'style' => 'background:#f65f7f;border:#f65f7f;font-size:26px']) !!}
     </div>
     {!! Form::close() !!}
 

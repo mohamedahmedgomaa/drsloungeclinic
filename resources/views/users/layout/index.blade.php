@@ -28,6 +28,7 @@
         <style>
             body {
                 direction: rtl;
+                /*font-family: "Cairo script=latin";*/
             }
 
             .form-control {
@@ -200,7 +201,7 @@
 
 
 {!! Html::script('admin/plugins/select2/js/select2.full.min.js') !!}
-{!! Html::script('admin/plugins/select2/js/form-select2.js') !!}
+{!! Html::script('admin/plugins/select2/js/select2.js') !!}
 
 
 <script>

@@ -12,7 +12,7 @@
 <!-- ChartJS -->
 <script src="{{ asset('admin') }}/plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
-<script src="{{ asset('admin') }}/plugins/sparklines/sparkline.js"></script>
+{{--<script src="{{ asset('admin') }}/plugins/sparklines/sparkline.js"></script>--}}
 <!-- JQVMap -->
 <script src="{{ asset('admin') }}/plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="{{ asset('admin') }}/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
@@ -38,7 +38,7 @@
 {!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.0/min/dropzone.min.js') !!}
 
 {!! Html::script('admin/plugins/select2/js/select2.full.min.js') !!}
-{!! Html::script('admin/plugins/select2/js/form-select2.js') !!}
+{!! Html::script('admin/plugins/select2/js/select2.js') !!}
 
 
 <script>

@@ -40,4 +40,13 @@ return [
     'ar' => 'عربى',
     'subscribe' => 'اشترك',
     'bookingSuccessfullyAdded' => 'تمت إضافة الحجز بنجاح.',
+    'addToCart' => 'اضف الى العربه',
+    'bookAppointment' => 'احجز موعدك',
+    'Thank you for Trusting. Drs.clinic ,' => 'شكرا على ثقتكم بدكتورز لوينج ,',
+    'Our Customer service will content you soon' => 'سوف يتم التواصل معكم قريبا.',
+    'selectService' => 'اختر الخدمه',
+    'laser' => 'الليزر',
+    'dermatology' => 'الجلدية',
+    'body_contouring' => 'نحت الجسم من غير جراحه',
+    'submit' => 'ارسل',
 ];

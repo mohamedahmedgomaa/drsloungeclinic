@@ -45,7 +45,9 @@
 
         <div class="row featurette">
             <div class="col-md-6" style="text-align: center">
-                <h2 style="font-size: 90px;font-weight: 900;margin: 132px 0;">{{ trans('users.bookNow') }}</h2>
+                <h2 style="font-size: 70px;font-weight: 900;margin: 132px 0 30px;">{{ trans('users.bookAppointment') }}</h2>
+                <h6 style="color: #f65f7f">{{ trans('users.Thank you for Trusting. Drs.clinic ,') }}</h6>
+                <h6 style="color: #f65f7f">{{ trans('users.Our Customer service will content you soon') }}</h6>
             </div>
 
             <div class="col-md-6">
