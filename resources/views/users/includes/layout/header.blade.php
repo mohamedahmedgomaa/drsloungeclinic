@@ -10,7 +10,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0" style="margin-left: 400px;margin-right: 400px">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0 navbarCenter">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" style="text-decoration: underline;color: #f65f7f;font-weight: bold"
                            href="{{ url('/') }}">{{ trans('users.home') }}</a>
@@ -29,7 +29,7 @@
                     </li>
 
                 </ul>
-                <ul class="d-flex mb-2 mb-md-0 navbar-nav">
+                <ul class="d-flex mb-2 mb-md-0 navbar-nav navbarMobile">
                     @if(Config::get('app.locale') == "ar")
                         <li class="nav-item">
                             <a class="btn btn-outline-dark" href="{{ url('en') }}">{{ trans('users.en') }}</a>
@@ -39,7 +39,7 @@
                             <a class="btn btn-outline-dark" href="{{ url('ar') }}">{{ trans('users.ar') }}</a>
                         </li>
                     @endif
-                    <li class="nav-item">
+                    <li class="nav-item basketMobile">
                         <livewire:user.product.basket-button/>
                     </li>
                 </ul>

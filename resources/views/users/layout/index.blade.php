@@ -125,6 +125,21 @@
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
             }
+
+            .navbar-dark .navbar-toggler-icon {
+                background-color: #000;
+            }
+            .navbarMobile .basketMobile {
+                margin: 22px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .navbarCenter  {
+                margin-left: 400px;
+                margin-right: 400px
+            }
+
         }
     </style>
 
