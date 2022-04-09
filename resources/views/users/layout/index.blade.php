@@ -112,6 +112,15 @@
             color: #000;
         }
 
+        /*.messagePopup {*/
+        /*    position: absolute;*/
+        /*}*/
+        .message {
+            position: fixed;
+            top: 77px;
+            right: 53px;
+        }
+
         @media (max-width: 768px) {
             .services {
                 font-size: 30px;
@@ -131,6 +140,10 @@
             }
             .navbarMobile .basketMobile {
                 margin: 22px;
+            }
+
+            .bookAppointment {
+                font-size: 45px !important;
             }
         }
 

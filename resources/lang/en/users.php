@@ -50,4 +50,7 @@ return [
     'dermatology' => 'Dermatology',
     'body_contouring' => 'Body Contouring',
     'submit' => 'Submit',
+    'cart' => 'Cart',
+    'totalAmount' => 'Total Amount',
+    'quantity' => 'Quantity',
 ];

@@ -49,4 +49,7 @@ return [
     'dermatology' => 'الجلدية',
     'body_contouring' => 'نحت الجسم من غير جراحه',
     'submit' => 'ارسل',
+    'cart' => 'عربة التسوق',
+    'totalAmount' => 'المبلغ الإجمالي',
+    'quantity' => 'الكمية',
 ];

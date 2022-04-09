@@ -1,8 +1,9 @@
 <div>
-    <div>
+    <div class="toastrMsg">
         @if (session()->has('message'))
-            <div class="alert alert-success">
+            <div class="alert alert-success message">
                 {{ session('message') }}
+                <button type="button" class="close btn btn-outline-success" data-dismiss="alert">×</button>
             </div>
         @endif
     </div>
@@ -10,7 +11,8 @@
     {!! Form::open(['url' => '#', 'wire:submit.prevent' => "bookNow",'method' => 'post']) !!}
 
     <div class="mb-3">
-        {!! Form::label('name', trans('users.name'), ['class' => 'form-label']) !!}<span style="color: red;font-size: 20px;">*</span>
+        {!! Form::label('name', trans('users.name'), ['class' => 'form-label']) !!}<span
+            style="color: red;font-size: 20px;">*</span>
         {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => trans('users.name'),  'wire:model' => 'name']) !!}
         @error('name')
         <p class="text-center text-danger ">{{ $message }}</p>
@@ -18,7 +20,8 @@
 
     </div>
     <div class="mb-3">
-        {!! Form::label('phone', trans('users.phone'), ['class' => 'form-label']) !!}<span style="color: red;font-size: 20px;">*</span>
+        {!! Form::label('phone', trans('users.phone'), ['class' => 'form-label']) !!}<span
+            style="color: red;font-size: 20px;">*</span>
         {!! Form::text('phone', null, ['class' => 'form-control', 'placeholder' => trans('users.phone'), 'wire:model' => 'phone']) !!}
         @error('phone')
         <p class="text-center text-danger ">{{ $message }}</p>
@@ -34,7 +37,8 @@
 
     </div>
     <div class="mb-3">
-        {!! Form::label('service', trans('users.service'), ['class' => 'form-label']) !!}<span style="color: red;font-size: 20px;">*</span>
+        {!! Form::label('service', trans('users.service'), ['class' => 'form-label']) !!}<span
+            style="color: red;font-size: 20px;">*</span>
         {!! Form::select('service', ['laser' => trans('users.laser'), 'dermatology' => trans('users.dermatology'), 'body_contouring' => trans('users.body_contouring')], null, ["wire:model.lazy"=>"service",'class'=>'form-control custom-select form-select', 'placeholder'=>trans('users.selectService'), 'id'=>'service']) !!}
         @error('service')
         <p class="errorCountry text-center text-danger ">{{ $message }}</p>
@@ -45,15 +49,19 @@
     </div>
     {!! Form::close() !!}
 
-
 </div>
 
 
 @section('page-script')
     <script>
+            window.livewire.on('alert_remove', () => {
+                setTimeout(function () {
+                    $(".toastrMsg").fadeOut('fast');
+                }, 3000); // 3 secs
+            });
         $(function () {
-            Livewire.on('addSelect2',function () {
-                $('#chosenFilters').select2().on('change',function () {
+            Livewire.on('addSelect2', function () {
+                $('#chosenFilters').select2().on('change', function () {
                 @this.set('chosen_filters', $(this).val());
                 });
             });

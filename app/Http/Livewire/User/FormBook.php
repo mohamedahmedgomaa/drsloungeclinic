@@ -70,6 +70,7 @@ class FormBook extends Component
 
         $this->resetForm();
         $this->render();
+        $this->emit('alert_remove');
 
         session()->flash('message', trans('users.bookingSuccessfullyAdded'));
     }
