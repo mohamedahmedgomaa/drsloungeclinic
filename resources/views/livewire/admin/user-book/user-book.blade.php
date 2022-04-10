@@ -22,7 +22,7 @@
                         <div class="card-body">
                             <h4 class="form-section">
                                 <i class="fas fa-info-circle text-primary"></i>
-                                {{ trans('admins.service') }}
+                                {{ trans('admins.currentUserBooking') }}
                             </h4>
                             <div class="mb-3 row ">
                                 <label for="Search" class="form-label col-md-1">Search</label>

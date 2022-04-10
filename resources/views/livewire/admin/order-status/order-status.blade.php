@@ -1,4 +1,4 @@
-@section('title', trans('admins.products'))
+@section('title', trans('admins.orderStatuses'))
 
 <section class="content">
     <div class="container-fluid">
@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title"
-                            id="row-separator-colored-controls">{{ trans('admins.products') }}</h4>
+                            id="row-separator-colored-controls">{{ trans('admins.orderStatuses') }}</h4>
                         <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
                         <div class="heading-elements">
                             <ul class="list-inline mb-0">
@@ -15,27 +15,18 @@
                             </ul>
                         </div>
                     </div>
-                    @include('livewire.admin.product.create')
-
+                    @include('livewire.admin.order-status.create')
 
                     <div class="card-content collapse show">
                         <div class="card-body">
-                            @if (Session::has('success'))
-                                <div class="alert alert-success alert-block">
-                                    <button type="button" class="close" data-dismiss="alert">×</button>
-                                    <strong>{{ Session::get('success')}}</strong>
-                                </div>
-                            @endif
-                            <h4 class="card-section">
+                            <h4 class="form-section">
                                 <i class="fas fa-info-circle text-primary"></i>
-                                {{ trans('admins.currentProductSubCategories') }}
+                                {{ trans('admins.orderStatuses') }}
                             </h4>
-                            <div class="mb-2 row">
-                                <div class="col-12">
-                                    <label for="Search" class="form-label">{{ __('admins.search') }}</label>
-                                    <input wire:model="search" name="search" type="search" class="form-control"
-                                           id="Search">
-                                </div>
+                            <div class="mb-3 row ">
+                                <label for="Search" class="form-label col-md-1"> {{ trans('admins.search') }}</label>
+                                <input wire:model="search"
+                                       name="search" type="search" class="form-control col-md-11" id="Search">
                             </div>
                             <div class="table-responsive">
                                 <table class="table text-center" id="countryTable">
@@ -51,6 +42,8 @@
                                                 @elseif(!$sortAsc && $lang == 'ar')
                                                     <i class="la la-dot-circle-o danger font-medium-1 mr-1"></i>
                                                 @endif
+
+
                                             </div>
                                         </th>
                                         <th>
@@ -64,26 +57,16 @@
                                                 @endif
                                             </div>
                                         </th>
-                                        <th>{{ trans('admins.price') }}</th>
-{{--                                        <th>{{ trans('admins.categories') }}</th>--}}
-{{--                                        <th>{{ trans('admins.subCategories') }}</th>--}}
-{{--                                        <th>{{ trans('admins.subSubCategories') }}</th>--}}
-                                        <th>{{ trans('admins.image') }} </th>
+
                                         <th>{{ trans('admins.actions') }}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-
                                     @foreach($items as $item)
                                         <tr class="item{!! $item->id !!}">
                                             <td>{{ $items->firstItem()+$loop->index }}</td>
                                             <td>{!! $item->{'name:ar'} !!}</td>
                                             <td>{!! $item->{'name:en'} !!}</td>
-                                            <td>{!! $item->price !!}</td>
-{{--                                            <td>{!! $item->productCategory->name !!}</td>--}}
-{{--                                            <td>{!! $item->productSubCategory->name !!}</td>--}}
-{{--                                            <td>{!! $item->productSubSubCategory->name !!}</td>--}}
-                                            <td>{{ Html::image('images/products/' . $item->image, 'img', ['class' => 'img-fluid', 'width' => 50, 'id' => 'repImage' . $item->id]) }}</td>
                                             <td>
                                                 @if ($item->active == 0)
                                                     <button class="btn btn-success"
@@ -98,19 +81,19 @@
                                                 @endif
                                                 <button wire:click="edit({{ $item->id }})"
                                                         class="edit-modal btn btn-info">
-                                                        <span
-                                                            class="fa fa-edit"></span>
+                                                    <span
+                                                        class="fa fa-edit"></span>
                                                 </button>
                                                 <button wire:click="delete({{ $item->id }})"
                                                         class="delete-modal btn btn-danger">
-                                                        <span
-                                                            class="fa fa-trash"></span>
+                                                    <span class="fa fa-trash"></span>
                                                 </button>
                                             </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
+
                             </div>
                             <div class="row">
                                 <div class="col-12 text-center m-2">
@@ -118,17 +101,22 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
 
-            @include('livewire.admin.product.edit')
+            @include('livewire.admin.order-status.edit')
 
-            @include('livewire.admin.product.delete')
+            @include('livewire.admin.order-status.delete')
+
             <script>
                 window.addEventListener('click', function (e) {
                     if (document.getElementById('modalbody').contains(e.target)) {
+
                         if (document.getElementById('innerbox').contains(e.target)) {
+
+
                         } else {
                             Livewire.emit('closemodel')
                         }
@@ -138,7 +126,10 @@
             <script>
                 window.addEventListener('click', function (e) {
                     if (document.getElementById('modalbodydel').contains(e.target)) {
+
                         if (document.getElementById('innerboxdel').contains(e.target)) {
+
+
                         } else {
                             Livewire.emit('closemodel')
                         }
@@ -148,4 +139,3 @@
         </div>
     </div>
 </section>
-

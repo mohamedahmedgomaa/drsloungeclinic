@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController as DashboardControllerAdmin;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\ProductController;
 use App\Http\Livewire\Admin\Order\Order;
+use App\Http\Livewire\Admin\OrderStatus\OrderStatus;
 use App\Http\Livewire\Admin\OurService\OurService;
 use App\Http\Livewire\Admin\Product\Product;
 use App\Http\Livewire\Admin\ProductCategory\ProductCategory;
@@ -64,6 +65,7 @@ Route::group(
                 Route::get('tag', Tag::class)->name('tag');
                 Route::get('order', Order::class)->name('order');
                 Route::get('our-service', OurService::class)->name('ourService');
+                Route::get('order-status', OrderStatus::class)->name('orderStatus');
 
             });
         });

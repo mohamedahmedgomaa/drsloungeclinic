@@ -35,9 +35,12 @@ return [
     'edit' => 'Edit',
     'delete' => 'Delete',
     'save' => 'Save',
+    'inactive' => 'In Active',
+    'active' => 'Active',
 
     // Subscribe
     'subscribe' => 'Subscribe',
+    'subscribes' => 'Subscribes',
     'subscribe_status' => 'Subscribe Status',
     'user_subscribe' => 'User Subscribe',
 
@@ -45,7 +48,27 @@ return [
     'user-book' => 'User Book',
     'addUserBook' => 'Add User Book',
     'actions' => 'Actions',
+    'currentUserBooking' => 'Current User Booking',
+    'userBookings' => 'User Bookings',
 
+    // Product
+    'manageProducts' => 'Manage Products',
+    'products' => 'Products',
+    'productSubCategory' => 'Product Sub Category',
+    'subSubCategory' => 'Sub Sub Category',
+    'addProduct' => 'Add Product',
+    'product_categories' => 'Product Categories',
+    'product_sub_categories' => 'Product Sub Categories',
+    'product_sub_sub_categories' => 'Product Sub Sub Categories',
+
+    'subCategories' => 'Sub Categories',
+    'subSubCategories' => 'Sub Sub Categories',
+    'status' => 'Status',
+    'pleaseSelect' => 'Please Select',
+
+    // Tag
+    'tags' => 'Tags',
+    'addTag' => 'Add Tag',
 
     // ProductCategories
     'currentProductCategories' => 'Current Product Categories',
@@ -65,13 +88,24 @@ return [
 
     // Order
     'orders' => 'Orders',
-    'orderStatus' => 'Order Status',
-    'orderDetails' => 'Order Details',
-    'orderStatuses' => 'Order Statuses',
     'currentOrders' => 'Current Orders',
+    'orderDetails' => 'Order Details',
     'showDetails' => 'Show Details Order',
     'platform' => 'PlatForm',
     'total' => 'Total',
     'price' => 'Price',
     'qty' => 'Qty',
+
+    // Order Status
+    'orderStatus' => 'Order Status',
+    'orderStatuses' => 'Order Statuses',
+    'addOrderStatus' => 'Add Order Status',
+
+    // Our Services
+    'ourServices' => 'Our Services',
+    'addOurService' => 'Add Our Service',
+    'currentOurServices' => 'Current Our Services',
+    'descriptionArabic' => 'Description Arabic',
+    'descriptionEnglish' => 'Description English',
+
 ];
