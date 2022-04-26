@@ -18,6 +18,7 @@ class OrderDetail extends Model
         'product_name_en',
         'product_description_en',
         'price',
+        'price_before_discount',
         'image',
         'qty',
     ];

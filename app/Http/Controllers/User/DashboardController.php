@@ -13,9 +13,8 @@ class DashboardController extends Controller
     {
 //        $data = request()->session()->all();
 //        request()->session()->forget('subscribe_not_show');
-        $products = Product::latest()->take(20)->get();
         $ourServices = OurService::latest()->take(3)->get();
 
-        return view('users.dashboard', compact('products', 'ourServices'));
+        return view('users.dashboard', compact('ourServices'));
     }
 }

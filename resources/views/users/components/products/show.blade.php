@@ -26,7 +26,14 @@
             </div>
             <div class="col-md-6 offset-md-2">
                 <h2>{{ $product->name }}</h2>
-                <h4>{{ $product->price }} SAR</h4>
+                @if($product->productCampaigns()->where('status', 'active')->first() != null)
+                    <h4 class="card-text">{{ $product->countDiscount() }} SAR
+                        <span
+                            class="text-danger text-decoration-line-through h6">{{ $product->price }} SAR</span>
+                    </h4>
+                @else
+                    <h4 class="card-text">{{ $product->price }} SAR</h4>
+                @endif
 
                 <hr class="featurette-divider">
 

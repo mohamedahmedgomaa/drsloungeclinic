@@ -24,6 +24,7 @@ class CreateOrderDetailsTable extends Migration
             $table->string('image');
             $table->decimal( 'price', 12, 2 );
             $table->integer( 'qty' );
+            $table->decimal( 'price_before_discount', 12, 2 );
             $table->softDeletes();
             $table->timestamps();
         });

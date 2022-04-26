@@ -17,7 +17,7 @@
               rel="stylesheet">
     @endif
 
-    @if(Config::get('app.locale') == "en")
+@if(Config::get('app.locale') == "en")
     <!-- Custom styles for this template -->
         <link href="{{asset('user')}}/assets/dist/css/carousel.css" rel="stylesheet">
         <!-- Bootstrap core CSS -->
@@ -52,6 +52,19 @@
     {!! Html::style('admin/plugins/select2/css/select2.min.css') !!}
 
     <style>
+        .divAlertSuccess {
+
+        }
+        .alertSuccess {
+            position: fixed;
+            right: 20px;
+            top: 70px;
+            padding: 8px 50px;
+            z-index: 9999;
+        }
+        .toast-success {
+            top: 50px;
+        }
         .select2-container--default .select2-selection--multiple .select2-selection__choice {
             background-color: #000;
         }
@@ -155,8 +168,8 @@
 
         }
     </style>
-
-
+    <!-- Toastr -->
+    <link rel="stylesheet" href="{{asset('admin')}}/plugins/toastr/toastr.min.css">
     @livewireStyles
 </head>
 <body style="color: #000">
@@ -227,10 +240,12 @@
 {{--@include('users.includes.layout.models')--}}
 {{-- Subscribe Model in First Page --}}
 
+<!-- Toastr -->
+{!! Html::script('admin/plugins/toastr/toastr.min.js') !!}
 
 {!! Html::script('admin/plugins/select2/js/select2.full.min.js') !!}
 {{--{!! Html::script('admin/plugins/select2/js/select2.js') !!}--}}
-
+@yield('js')
 
 <script>
     $(document).ready(function () {
@@ -238,8 +253,40 @@
     });
 </script>
 
-
 @livewireScripts
+@yield('livewire-js')
+
+<script>
+    {{--    $this->dispatchBrowserEvent('add'); --}}
+    //     document.addEventListener("add", event => {
+    //         setTimeout(function () {
+    //             $('#alert').fadeOut('fast');
+    //         }, 5000);
+    //     });
+
+     // $this->emit('add');
+    // livewire.on('add', () => {
+    //     Command: toastr["success"]("My name is Inigo Montoya. You killed my father. Prepare to die!")
+    //
+    //     toastr.options = {
+    //         "closeButton": false,
+    //         "debug": false,
+    //         "newestOnTop": false,
+    //         "progressBar": false,
+    //         "positionClass": "toast-top-right",
+    //         "preventDuplicates": false,
+    //         "onclick": null,
+    //         "showDuration": "300",
+    //         "hideDuration": "1000",
+    //         "timeOut": "5000",
+    //         "extendedTimeOut": "1000",
+    //         "showEasing": "swing",
+    //         "hideEasing": "linear",
+    //         "showMethod": "fadeIn",
+    //         "hideMethod": "fadeOut"
+    //     }
+    // });
+</script>
 
 </body>
 </html>

@@ -9,6 +9,7 @@ use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
@@ -35,6 +36,10 @@ class Product extends Model implements TranslatableContract
 
     public function tags(): BelongsToMany {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function productCampaigns(): HasMany {
+        return $this->hasMany(ProductCampaign::class);
     }
 //
 //    public function users(): BelongsToMany
@@ -72,6 +77,17 @@ class Product extends Model implements TranslatableContract
     public function productSubSubCategory(): BelongsTo
     {
         return $this->belongsTo(ProductSubSubCategory::class)->withTrashed();
+    }
+
+    public function countDiscount()
+    {
+        $productCampaign = $this->productCampaigns()->where('status', 'active');
+        if ($productCampaign->exists()) {
+            $campaign_dis = $this->productCampaigns()->where('status', 'active')->first()->discount;
+            return $this->price - $this->price * ($campaign_dis / 100);
+        } else {
+            return $this->price;
+        }
     }
 
 }

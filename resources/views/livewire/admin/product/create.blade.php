@@ -108,20 +108,6 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6" wire:ignore>
-                        {!! Form::label('tags', trans('admins.tags'), ['class' => 'col-md-12 label-control']) !!}
-                        <div class="col-md-12">
-
-                            @if (count($modelTags) != 0)
-                                {!! Form::select('tags[]', $modelTags, null, ['class'=>'select2 custom-select select3', 'id' => 'tags', 'multiple'=>'multiple']) !!}
-                            @else
-                                <input disabled class="form-control" value="No Tags">
-                            @endif
-                            @error('tags')
-                            <p class="errorCountry text-center alert alert-danger ">{{ $message }}</p>
-                            @enderror
-                        </div>
-                    </div>
 
                     <div class="col-md-6">
                         <div class="form-group row mx-1">
@@ -129,6 +115,22 @@
                             <input type="file" wire:model.lazy="image" class="form-control" id="image" name="image"/>
                             @error('image')
                             <p class="errorCountry text-center text-danger ">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        {!! Form::label('tags', trans('admins.tags'), ['class' => 'col-md-12 label-control']) !!}
+                        <div class="col-md-12">
+
+                            @if (count($modelTags) != 0)
+                                {!! Form::select('tags[]', $modelTags, null, ['class'=>'custom-select', 'id' => 'tags', 'multiple'=>'multiple', 'wire:model.lazy'=>'tags']) !!}
+                            @else
+                                <input disabled class="form-control" value="No Tags">
+                            @endif
+                            @error('tags')
+                            <p class="errorCountry text-center alert alert-danger ">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>

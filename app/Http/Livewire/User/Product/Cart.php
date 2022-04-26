@@ -84,6 +84,7 @@ class Cart extends Component
                 'product_description_en' => $product->options->product_description_en,
                 'price' => $product->price,
                 'image' => $product->options->image,
+                'price_before_discount' => $product->options->price_before_discount,
                 'qty' => $product->qty,
             ]);
         }

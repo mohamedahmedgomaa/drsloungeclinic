@@ -37,6 +37,7 @@ return [
     'save' => 'Save',
     'inactive' => 'In Active',
     'active' => 'Active',
+    'moreInfo' => 'More Info',
 
     // Subscribe
     'subscribe' => 'Subscribe',

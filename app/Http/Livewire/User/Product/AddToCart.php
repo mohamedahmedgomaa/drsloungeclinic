@@ -18,20 +18,20 @@ class AddToCart extends Component
 
     public function add()
     {
-        $qty = (int)$this->qty;
         $product = Product::where('id', $this->productId)->first();
 
         $cart = Cart::add(
             $product->id,
             $product->name,
-            $qty,
-            $product->price,
+            $this->qty,
+            $product->countDiscount(),
             0,
             [
                 'product_name_ar' => $product->translate('ar')->name,
                 'product_description_ar' => $product->translate('ar')->description,
                 'product_name_en' => $product->translate('en')->name,
                 'product_description_en' => $product->translate('en')->description,
+                'price_before_discount' => ($product->productCampaigns()->where('status', 'active')->first() != null) ? $product->price : null,
                 'image' => $product->image,
                 'description' => $product->description,
                 'admin' => $product->admin_id,

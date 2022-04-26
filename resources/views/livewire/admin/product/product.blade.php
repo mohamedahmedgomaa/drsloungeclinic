@@ -65,9 +65,6 @@
                                             </div>
                                         </th>
                                         <th>{{ trans('admins.price') }}</th>
-{{--                                        <th>{{ trans('admins.categories') }}</th>--}}
-{{--                                        <th>{{ trans('admins.subCategories') }}</th>--}}
-{{--                                        <th>{{ trans('admins.subSubCategories') }}</th>--}}
                                         <th>{{ trans('admins.image') }} </th>
                                         <th>{{ trans('admins.actions') }}</th>
                                     </tr>
@@ -79,10 +76,14 @@
                                             <td>{{ $items->firstItem()+$loop->index }}</td>
                                             <td>{!! $item->{'name:ar'} !!}</td>
                                             <td>{!! $item->{'name:en'} !!}</td>
-                                            <td>{!! $item->price !!}</td>
-{{--                                            <td>{!! $item->productCategory->name !!}</td>--}}
-{{--                                            <td>{!! $item->productSubCategory->name !!}</td>--}}
-{{--                                            <td>{!! $item->productSubSubCategory->name !!}</td>--}}
+{{--                                            @if($item->productCampaigns()->where('status', 'active')->first() != null)--}}
+{{--                                                <td>{{ $item->countDiscount() }} SAR--}}
+{{--                                                    <span--}}
+{{--                                                        class="text-danger text-decoration-line-through h6">{{ $item->price }} SAR</span>--}}
+{{--                                                </td>--}}
+{{--                                            @else--}}
+                                                <td>{{ $item->price }} SAR</td>
+{{--                                            @endif--}}
                                             <td>{{ Html::image('images/products/' . $item->image, 'img', ['class' => 'img-fluid', 'width' => 50, 'id' => 'repImage' . $item->id]) }}</td>
                                             <td>
                                                 @if ($item->active == 0)

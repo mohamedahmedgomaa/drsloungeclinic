@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Product;
 
+use App\Models\ProductCampaign;
 use App\Models\ProductCategory;
 use App\Models\Product as ModelProduct;
 use App\Models\ProductSubCategory;
@@ -28,6 +29,10 @@ class Product extends Component
     public $price;
     public $product_sub_category_id;
     public $product_sub_sub_category_id;
+    public $purchases_limits;
+    public $stock;
+    public $expire;
+    public $discount;
     public $tags = [];
     public $Id = "";
     public $showEditModal = FALSE;
@@ -36,6 +41,7 @@ class Product extends Component
     public $sortField;
     public $sortAsc = TRUE;
     public $lang = 'en';
+
     protected $queryString = ['search', 'sortField', 'sortAsc'];
     protected $paginationTheme = 'bootstrap';
     protected $listeners = ['closemodel' => 'closemodal'];
@@ -54,8 +60,8 @@ class Product extends Component
                 'qty' => 'required',
                 'image' => 'required|image',
                 'price' => 'required',
-                'tags' => 'nullable|array',
-                'tags.*' => 'nullable|exists:tags,id,deleted_at,NULL',
+                'tags' => 'required|array',
+                'tags.*' => 'required|exists:tags,id,deleted_at,NULL',
 
             ];
         } else {
@@ -73,6 +79,10 @@ class Product extends Component
                 'status' => 'required|in:waiting,active,refused',
                 'tags' => 'nullable|array',
                 'tags.*' => 'nullable|exists:tags,id,deleted_at,NULL',
+                'purchases_limits' => 'nullable',
+                'stock' => 'nullable|required_with:purchases_limits',
+                'expire' => 'nullable|date',
+                'discount' => 'nullable|required_with:purchases_limits',
             ];
         }
 
@@ -97,6 +107,12 @@ class Product extends Component
         $this->product_sub_category_id = "";
         $this->product_sub_sub_category_id = "";
         $this->qty = "";
+        $this->purchases_limits = '';
+        $this->stock = '';
+        $this->expire = '';
+        $this->discount = '';
+        $this->Id = '';
+        $this->tags = [];
     }
 
     public function create()
@@ -125,7 +141,6 @@ class Product extends Component
             'status' => 'waiting',
             'active' => 1,
         ]);
-
         $product->tags()->attach($data['tags']);
 
         $this->resetForm();
@@ -148,6 +163,15 @@ class Product extends Component
         $this->product_category_id = $item->product_category_id;
         $this->product_sub_category_id = $item->product_sub_category_id;
         $this->product_sub_sub_category_id = $item->product_sub_sub_category_id;
+        $this->tags = $item->tags->pluck('id')->toArray();
+        $productCampaign = ProductCampaign::whereProductId($this->Id)->where('status', 'active')->first();
+        if ($productCampaign != NULL) {
+            $this->purchases_limits = $productCampaign->purchases_limits;
+            $this->stock = $productCampaign->stock;
+            $this->expire = date('Y-m-d', strtotime($productCampaign->expire));
+            $this->discount = $productCampaign->discount;
+        }
+
     }
 
     public function update()
@@ -178,7 +202,30 @@ class Product extends Component
             'qty' => $data['qty'],
         ]);
 
-        $item->tags()->attach($data['tags']);
+        $item->tags()->sync($data['tags']);
+
+        if ($data['purchases_limits'] != NULL) {
+            $productCampaign = ProductCampaign::whereProductId($item->id)->where('status', 'active')->first();
+            if ($productCampaign == NULL) {
+                ProductCampaign::create([
+                    'product_id' => $item->id,
+                    'purchases_limits' => $data['purchases_limits'],
+                    'stock' => $data['stock'],
+                    'expire' => $data['expire'],
+                    'discount' => $data['discount'],
+                    'status' => 'active',
+                ]);
+            } else {
+                $productCampaign->update([
+                    'product_id' => $productCampaign->product_id,
+                    'purchases_limits' => $data['purchases_limits'],
+                    'stock' => $data['stock'],
+                    'expire' => $data['expire'],
+                    'discount' => $data['discount'],
+                    'status' => 'active',
+                ]);
+            }
+        }
 
         $this->resetForm();
         $this->Id = '';
@@ -264,7 +311,7 @@ class Product extends Component
                     $this->sortAsc ? 'asc' : 'desc'
                 );
             })
-            ->paginate(10);
+            ->paginate(50);
         return view('livewire.admin.product.product', [
             'items' => $items,
             'product_categories' => $product_categories,

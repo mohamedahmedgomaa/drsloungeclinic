@@ -45,7 +45,8 @@
 
         <div class="row featurette">
             <div class="col-md-6" style="text-align: center">
-                <h2 style="font-size: 70px;font-weight: 900;margin: 132px 0 30px;" class="bookAppointment">{{ trans('users.bookAppointment') }}</h2>
+                <h2 style="font-size: 70px;font-weight: 900;margin: 132px 0 30px;"
+                    class="bookAppointment">{{ trans('users.bookAppointment') }}</h2>
                 <h6 style="color: #f65f7f">{{ trans('users.Thank you for Trusting. Drs.clinic ,') }}</h6>
                 <h6 style="color: #f65f7f">{{ trans('users.Our Customer service will content you soon') }}</h6>
             </div>
@@ -69,21 +70,8 @@
 
         <hr class="featurette-divider" id="products">
 
-        <div class="row text-center">
-            @foreach($products as $product)
-                <div class="card col-lg-3 col-md-4 col-sm-12" style="border: none;padding: 0 5px">
-                    {{ Html::image('images/products/' . $product->image, 'img', ['class' => 'card-img-top']) }}
-                    <div class="card-body">
-                        <h4 class="card-title">{{ $product->name }}</h4>
-                        <h6 class="card-text">{{ $product->price }} SAR</h6>
-                        {{--                        <p class="card-text">{{ $product->description }}</p>--}}
-                    </div>
-                    <div class="card-body">
-                        <livewire:user.add-to-cart :wire:key="$product->id" :productId="$product->id"/>
-                    </div>
-                </div>
-            @endforeach
-        </div>
+        <livewire:user.products/>
+
     </div>
 
 

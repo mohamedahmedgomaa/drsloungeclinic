@@ -119,20 +119,6 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6" wire:ignore>
-                            {!! Form::label('tags', trans('admins.tags'), ['class' => 'col-md-12 label-control']) !!}
-                            <div class="col-md-12">
-
-                                @if (count($modelTags) != 0)
-                                    {!! Form::select('tags[]', $modelTags, null, ['class'=>'custom-select select3', 'id' => 'tags', 'multiple'=>'multiple']) !!}
-                                @else
-                                    <input disabled class="form-control" value="No Tags">
-                                @endif
-                                @error('tags')
-                                <p class="errorCountry text-center alert alert-danger ">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
 
                         <div class="col-md-6">
                             <div class="form-group row mx-1">
@@ -143,7 +129,91 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="col-md-6">
+                            {!! Form::label('tags', trans('admins.tags'), ['class' => 'col-md-12 label-control']) !!}
+                            <div class="col-md-12">
+
+                                @if (count($modelTags) != 0)
+                                    {!! Form::select('tags[]', $modelTags, null, ['class'=>'custom-select', 'id' => 'tags', 'multiple'=>'multiple', 'wire:model.lazy'=>'tags']) !!}
+                                @else
+                                    <input disabled class="form-control" value="No Tags">
+                                @endif
+                                @error('tags')
+                                <p class="errorCountry text-center alert alert-danger ">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
+                    <div class="card mt-5">
+                        <div class="card-header">
+                            <h4 class="form-section"><i class="fas fa-info-circle text-primary"></i>   {{ trans('admins.addProductCampaign') }}</h4>
+                            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content collpase collapse show" style="">
+                            <div class="card-body">
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                {!! Form::label('purchases_limits', trans('admins.purchases_limits'), ['class'=>'col-md-12 label-control']) !!}
+                                                <div class="col-md-12">
+                                                    {!! Form::number('purchases_limits', null, ['class'=>'form-control', 'wire:model.lazy'=>'purchases_limits', 'placeholder'=>trans('admins.purchases_limits')]) !!}
+                                                </div>
+                                            </div>
+                                            @error('purchases_limits')
+                                            <p class="errorCountry text-center alert alert-danger ">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                {!! Form::label('stock', trans('admins.stock'), ['class'=>'col-md-12 label-control']) !!}
+                                                <div class="col-md-12">
+                                                    {!! Form::number('stock', null, ['class'=>'form-control', 'placeholder'=>trans('admins.stock'), 'wire:model.lazy'=>'stock']) !!}
+                                                </div>
+                                            </div>
+                                            @error('stock')
+                                            <p class="errorCountry text-center alert alert-danger ">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            {!! Form::label('expire', trans('admins.expire'), ['class'=>'col-md-12 label-control']) !!}
+                                            <div class="col-md-12">
+                                                {!! Form::date('expire', null, ['class'=>'form-control', 'placeholder'=>trans('admins.expire'), 'wire:model.lazy'=>'expire']) !!}
+                                            </div>
+                                        </div>
+                                        @error('expire')
+                                        <p class="errorCountry text-center alert alert-danger ">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            {!! Form::label('discount', trans('admins.discount'), ['class'=>'col-md-12 label-control']) !!}
+                                            <div class="col-md-12">
+                                                {!! Form::text('discount', null, ['class'=>'form-control', 'step'=>'any', 'placeholder'=>trans('admins.discount'), 'id' => 'discount_product_campaigns', 'wire:model.lazy'=>'discount']) !!}
+                                            </div>
+                                        </div>
+                                        @error('discount')
+                                        <p class="errorCountry text-center alert alert-danger ">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button wire:loading.attr="disabled" wire:target="update,image" type="submit"
